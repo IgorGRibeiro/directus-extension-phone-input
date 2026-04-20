@@ -1,0 +1,76 @@
+{
+  "name": "@ribertec/directus-extension-phone-input",
+  "description": "Phone number interface and display for Directus with country selector, as-you-type formatting, validation, and configurable storage formats.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "@ribertec",
+  "icon": "phone",
+  "keywords": [
+    "directus",
+    "directus-extension",
+    "directus-extension-bundle",
+    "phone"
+  ],
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "directus:extension": {
+    "type": "bundle",
+    "path": {
+      "app": "dist/app.js",
+      "api": "dist/api.js"
+    },
+    "entries": [
+      {
+        "type": "interface",
+        "name": "phone-input",
+        "source": "src/phone-input/index.ts"
+      },
+      {
+        "type": "display",
+        "name": "phone-display",
+        "source": "src/phone-display/index.ts"
+      }
+    ],
+    "sandbox": {
+      "enabled": true,
+      "requestedScopes": {}
+    },
+    "host": "^11.0.0"
+  },
+  "scripts": {
+    "build": "directus-extension build",
+    "dev": "directus-extension build -w --no-minify",
+    "link": "directus-extension link",
+    "validate": "directus-extension validate",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "translate": "node --env-file=.env scripts/generate-translations.js"
+  },
+  "dependencies": {
+    "libphonenumber-js": "^1.11.0",
+    "vue-i18n": "^11.2.8"
+  },
+  "devDependencies": {
+    "@anthropic-ai/sdk": "^0.78.0",
+    "@directus/extensions-sdk": "^17.0.5",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^12.0.6",
+    "@semantic-release/npm": "^13.1.4",
+    "@semantic-release/release-notes-generator": "^14.1.0",
+    "semantic-release": "^25.0.3",
+    "typescript": "^5.0.0",
+    "vitest": "^3.0.0",
+    "vue": "^3.5.27"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IgorGRibeiro/directus-extension-phone-input.git"
+  },
+  "bugs": {
+    "url": "https://github.com/IgorGRibeiro/directus-extension-phone-input/issues"
+  },
+  "homepage": "https://github.com/IgorGRibeiro/directus-extension-phone-input#readme"
+}
